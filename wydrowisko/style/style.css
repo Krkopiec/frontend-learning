@@ -33,7 +33,7 @@ a[href="#"] {
   /*deklaracja stylu*/
 text-decoration: none;
 }
-.glówny-tytul {
+.glowny-tytul {
   flex: 0 1 auto;
 }
 .tekst-logo {
@@ -43,7 +43,7 @@ text-decoration: none;
   font-family: jezioro;
   font-size: 37px;
 }
-.glówna-treść {
+.glowna-tresc {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -98,4 +98,21 @@ text-decoration: none;
   color: white;
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
   font-size: 40px;
+}
+@media all and (min-width: 768px) {
+  .glowna-tresc {
+    flex-direction: row;
+    overflow:hidden;
+  }
+.lista-miniatur{
+  flex-direction: column;
+  order 0;
+  margin-left: 20px;
+}
+.element-listy{
+  max-width: 260px;
+}
+.element-listy + .element-listy {
+  margin-top: 20px;
+}
 }
