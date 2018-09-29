@@ -106,7 +106,7 @@ text-decoration: none;
   }
 .lista-miniatur{
   flex-direction: column;
-  order 0;
+  order: 0 ;
   margin-left: 20px;
 }
 .element-listy{
