@@ -54,6 +54,10 @@ text-decoration: none;
   max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
+  transition: transform 133ms ease-in-out ;
+}
+.element-listy:hover {
+  transform: scale(1.2);
 }
 .lista-miniatur {
   flex: 0 1 auto;
@@ -61,7 +65,7 @@ text-decoration: none;
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 0;
+  padding: 20;
   white-space:  nowrap;
   overflow-x: auto;
 }
@@ -86,6 +90,11 @@ text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 333ms;
+}
+.bardzo-maly-obraz {
+transform: scale(0.001);
+transition: transform 0ms;
 }
 .duzy-obraz {
   width: 90%;
@@ -99,6 +108,16 @@ text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
   font-size: 40px;
 }
+.ukryty-duzy-obraz .kontener-duzego-obrazu {
+  display: none;
+}
+.ukryty-duzy-obraz .lista-miniatur {
+  flex-direction: column;
+  align-items: center
+}
+.ukryty-duzy-obraz .element-listy {
+  max-width: 80%;
+}
 @media all and (min-width: 768px) {
   .glowna-tresc {
     flex-direction: row;
@@ -108,6 +127,7 @@ text-decoration: none;
   flex-direction: column;
   order: 0 ;
   margin-left: 20px;
+  padding: 0 35px;
 }
 .element-listy{
   max-width: 260px;
