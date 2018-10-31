@@ -25,7 +25,7 @@
             console.log(dane);
             fn(dane);
             this.reset();
-            this.element[0].focus();
+            this.elements[0].focus();
         });
     };
 

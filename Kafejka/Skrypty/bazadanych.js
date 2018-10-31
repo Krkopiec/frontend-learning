@@ -18,7 +18,7 @@
         return this.dane;
     }
 
-    BazaDanych.prototype.usuń = function(klucz) {
+    BazaDanych.prototype.usun = function(klucz) {
         delete this.dane[klucz];
     }
     
