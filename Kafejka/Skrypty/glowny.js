@@ -7,6 +7,7 @@
     var Furgonetka = Aplikacja.Furgonetka;
     var BazaDanych = Aplikacja.BazaDanych;
     var ObslugaFormularza = Aplikacja.ObslugaFormularza;
+    var Weryfikacja = Aplikacja.Weryfikacja;
     var ListaZamowien = Aplikacja.ListaZamowien;
     
     var mojaFurgonetka = new Furgonetka('ncc-1701', new BazaDanych());
@@ -20,4 +21,5 @@
             mojaFurgonetka.zlozZamowienie.call(mojaFurgonetka, dane);
             listaZamowien.dodajWiersz.call(listaZamowien, dane);
     });
+    obslugaFormularza.dodajObslugeZnaku(Weryfikacja.czyAdresFirmowy);
 })(window);

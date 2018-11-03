@@ -28,6 +28,19 @@
             this.elements[0].focus();
         });
     };
+    ObslugaFormularza.prototype.dodajObslugeZnaku = function(fn) {
+        console.log('Utworzenie obsługi zdarzenia input formularza');
+        this.$elementFormularza.on('input', '[name="adresEmail"]', function(event) {
+            var adresEmail = event.target.value;
+            var komunikat = '';
+            if(fn(adresEmail)) {
+                event.target.setCustomValidity('');
+            } else {
+                komunikat = 'Adres' + adresEmail + ' nie jest dozwolony !'
+                event.target.setCustomValidity(komunikat);
+            }
+        });
+    };
 
     Aplikacja.ObslugaFormularza = ObslugaFormularza;
     window.Aplikacja = Aplikacja;

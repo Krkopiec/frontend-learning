@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <title>Kafejka</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        form :focus:required:invalid {
+          border-color: #a94442;  
+        }
+    </style>
     </head>
     <body class="container">
         <header>
@@ -15,12 +20,13 @@
                     <form data-zamowienie="formularz">
                         <div class="form-group">
                             <label for="zamowienieKawy">Zamówienie</label>
-                            <input class="form-control" name="kawa" id="zamowienieKawy" autofocus>
+                            <input class="form-control" name="kawa" id="zamowienieKawy" autofocus required
+                            pattern="[a-zA\s]+">
                         </div>
                         <div class="form-group">
                             <label for="daneEmail">Adres e-mail</label>
                             <input class="form-control" type="email" name="adresEmail"
-                            id="daneEmail" value="" placeholder="dr@who.com">
+                            id="daneEmail" value="" placeholder="dr@who.com" required>
                         </div>
                             <div class="radio">
                                 <label>
@@ -67,6 +73,7 @@
             </div>
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+        <script src="Skrypty/weryfikacja.js" charset="utf-8"></script>
         <script src="skrypty/listazamowien.js" charset="utf-8"></script>
         <script src="Skrypty/obslugaformularza.js" charset="utf-8"></script>
         <script src="Skrypty/bazadanych.js" charset="utf-8"></script>
