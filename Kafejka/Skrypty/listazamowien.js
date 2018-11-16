@@ -17,8 +17,9 @@
     ListaZamowien.prototype.dodajObslugeKlikniecia = function(fn) {
         this.$element.on('click', 'input', function(zdarzenie) {
             var email = zdarzenie.target.value;
-            this.usunWiersz(email);
-            fn(email);
+            fn(email).then(function() {
+                this.usunWiersz(email);
+            }.bind(this));
         }.bind(this));
     }
 

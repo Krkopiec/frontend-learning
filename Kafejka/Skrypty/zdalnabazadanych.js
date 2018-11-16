@@ -9,24 +9,28 @@
         this.sciezkaUrl = url;
     }
     ZdalnaBazaDanych.prototype.dodaj = function(klucz, wartosc) {
-        $.post(this.sciezkaUrl, wartosc, function(odpowiedzSerwera){
+        return $.post(this.sciezkaUrl, wartosc, function(odpowiedzSerwera){
             console.log(odpowiedzSerwera);
         });
     };
     ZdalnaBazaDanych.prototype.pobierzWszystko = function(fzwr) {
-        $.get(this.sciezkaUrl, function(odpowiedzSerwera){
+        return $.get(this.sciezkaUrl, function(odpowiedzSerwera){
+            if(fzwr) {
             console.log(odpowiedzSerwera);
             fzwr(odpowiedzSerwera);
+            }
         });
     };
     ZdalnaBazaDanych.prototype.pobierz = function(klucz, fzwr) {
-        $.get(this.sciezkaUrl + '/' + klucz, function(odpowiedzSerwera){
+        return $.get(this.sciezkaUrl + '/' + klucz, function(odpowiedzSerwera){
+            if(fzwr) {
             console.log(odpowiedzSerwera);
-            fzwr(odpowiedzSerwera);
+             fzwr(odpowiedzSerwera);
+            }
         });
     };
     ZdalnaBazaDanych.prototype.usun = function(klucz) {
-        $.ajax(this.sciezkaUrl + '/' + klucz , {
+        return $.ajax(this.sciezkaUrl + '/' + klucz , {
             type: 'DELETE'
         });
     };

@@ -15,7 +15,7 @@
 
     ObslugaFormularza.prototype.dodajObslugeWysylki = function(fn) {
         console.log('Utworzenie obsługi zdarzenia submit formularz');
-        this.$elementFormularza.on('submit',function(zdarzenie) {
+        this.$elementFormularza.on('submit', function(zdarzenie) {
             zdarzenie.preventDefault();
             var dane = {};
             $(this).serializeArray().forEach(function(element) {
@@ -23,9 +23,10 @@
                 console.log('Element' + element.name + 'ma wartość' + element.value);
             });
             console.log(dane);
-            fn(dane);
-            this.reset();
-            this.elements[0].focus();
+            fn(dane).then(function() {
+                this.reset();
+                this.elements[0].focus();
+            }.bind(this));
         });
     };
     ObslugaFormularza.prototype.dodajObslugeZnaku = function(fn) {

@@ -7,17 +7,22 @@
     }
     Furgonetka.prototype.zlozZamowienie = function(zamowienie) {
         console.log('Złóż zamówienie dla ' + zamowienie.email);
-        this.bazadanych.dodaj(zamowienie.email, zamowienie);
+        return this.bazadanych.dodaj(zamowienie.email, zamowienie);
     };
     Furgonetka.prototype.zrealizujZamowienie = function(idklienta) {
         console.log('Zrealizowane zamówienie dla' + idklienta);
-        this.bazadanych.usun(idklienta);
+        return this.bazadanych.usun(idklienta);
     };
-    Furgonetka.prototype.drukujZamowienia = function() {
-        var tablicaKlientow = Object.keys(this.bazadanych.pobierzWszystkie());
+    Furgonetka.prototype.drukujZamowienia = function(funkcjaDrukujaca) {
+        return this.bazadanych.pobierzWszystkie().then(function(zamowienie){
+        var tablicaKlientow = Object.keys(zamowienie);
         console.log('Furgonetka nr ' + this.identyfikator + ' ma niezealizowane zmówienie: ');
         tablicaKlientow.forEach(function(identyfikator) {
-            console.log(this.bazadanych.pobierz(identyfikator));
+            console.log(zamowienie[id]);
+            if(funkcjaDrukujaca) {
+                funkcjaDrukujaca(zamowienie[id]);
+            }
+        }.bind(this));
         }.bind(this));
     };
     Aplikacja.Furgonetka = Furgonetka;
